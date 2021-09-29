@@ -3,6 +3,7 @@ package com.example.foregroundservice;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
@@ -29,6 +30,9 @@ public class DemoForegroundService extends Service {
 
     private void showOnGoingServiceNotification() {
 
+        Intent intent = new Intent(this, MainActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
         createNotificationChannel();
 
         Notification notificationCompat = new NotificationCompat.Builder(this, CHANNEL_ID)
@@ -36,6 +40,7 @@ public class DemoForegroundService extends Service {
                 .setSmallIcon(R.drawable.ic_launcher_background)
                 .setContentText("This is foregorund service")
                 .setPriority(NotificationCompat.PRIORITY_LOW)
+                .setContentIntent(pendingIntent)
                 .build();
 
         startForeground(1, notificationCompat);
