@@ -13,12 +13,10 @@ public class MainActivity extends AppCompatActivity implements ButtonClickCallba
 
     private final String TAG = MainActivity.class.getSimpleName();
 
-    private ActivityMainBinding activityMainBinding;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        activityMainBinding = DataBindingUtil.setContentView(this,R.layout.activity_main);
+        ActivityMainBinding activityMainBinding = DataBindingUtil.setContentView(this,R.layout.activity_main);
         activityMainBinding.setCallBack(this);
     }
 

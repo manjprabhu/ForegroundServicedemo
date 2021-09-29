@@ -5,7 +5,6 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.Service;
 import android.content.Intent;
-import android.os.Build;
 import android.os.IBinder;
 
 import androidx.annotation.Nullable;
@@ -32,7 +31,7 @@ public class DemoForegroundService extends Service {
 
         createNotificationChannel();
 
-        Notification notificationCompat = new NotificationCompat.Builder(this,CHANNEL_ID)
+        Notification notificationCompat = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setContentTitle("ForegoroundService")
                 .setSmallIcon(R.drawable.ic_launcher_background)
                 .setContentText("This is foregorund service")
@@ -44,12 +43,8 @@ public class DemoForegroundService extends Service {
     }
 
     private void createNotificationChannel() {
-
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.O) {
-            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, "Foreground service Channel", NotificationManager.IMPORTANCE_DEFAULT);
-            NotificationManager manager = getSystemService(NotificationManager.class);
-            manager.createNotificationChannel(channel);
-        }
-
+        NotificationChannel channel = new NotificationChannel(CHANNEL_ID, "Foreground service Channel", NotificationManager.IMPORTANCE_DEFAULT);
+        NotificationManager manager = getSystemService(NotificationManager.class);
+        manager.createNotificationChannel(channel);
     }
 }
