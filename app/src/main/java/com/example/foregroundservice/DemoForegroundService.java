@@ -34,9 +34,9 @@ public class DemoForegroundService extends Service {
         createNotificationChannel();
 
         Notification notificationCompat = new NotificationCompat.Builder(this, CHANNEL_ID)
-                .setContentTitle("ForegoroundService")
+                .setContentTitle("ForegroundService")
                 .setSmallIcon(R.drawable.ic_launcher_background)
-                .setContentText("This is foregorund service")
+                .setContentText("This is foreground service")
                 .setPriority(NotificationCompat.PRIORITY_LOW)
                 .setContentIntent(pendingIntent)
                 .build();
