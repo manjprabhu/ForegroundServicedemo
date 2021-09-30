@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity implements ButtonClickCallba
     @Override
     public void onStartService() {
         Log.v(TAG,"===>>> onStartService");
-
         Intent intent = new Intent(this, DemoForegroundService.class);
         startService(intent);
     }

@@ -25,11 +25,9 @@ public class DemoForegroundService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         showOnGoingServiceNotification();
         return START_STICKY;
-
     }
 
     private void showOnGoingServiceNotification() {
-
         Intent intent = new Intent(this, MainActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
@@ -44,7 +42,6 @@ public class DemoForegroundService extends Service {
                 .build();
 
         startForeground(1, notificationCompat);
-
     }
 
     private void createNotificationChannel() {
